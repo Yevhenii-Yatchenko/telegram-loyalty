@@ -1,0 +1,17 @@
+[Unit]
+Description=loyalty-bot
+After=syslog.target
+ 
+[Service]
+User=telegram_user
+ExecStart=/<PATH_TO_BOT_DIR>/telegram_loyalty/bot.py
+SuccessExitStatus=0
+Environment="TELEGRAM_API_TOKEN=<TELEGRAM_TOKEN>"
+Environment="LOG_FILE_PATH=/var/log/telegram-loyalty.log"
+Environment="LOYALTY_BRAND=vivat"
+Environment="AUTHZ_HEADER_VALUE=Basic XXXXXX"
+
+
+[Install]
+WantedBy=multi-user.target
+
